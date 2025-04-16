@@ -1,0 +1,99 @@
+<<!DOCTYPE html>
+<html>
+<head>
+<title>Payroll Program</title>
+<script>
+var employeeCount = 0;
+var employees = [];
+
+function addEmployee() {
+ var name = document.getElementById("name").value;
+ var daysWorked = parseInt(document.getElementById("daysWorked").value);
+ var dailyRate = parseInt(document.getElementById("dailyRate").value);
+ var deductionAmount = parseInt(document.getElementById("deductionAmount").value);
+
+ if (!name || !daysWorked || !dailyRate || !deductionAmount) {
+    alert("Please enter all fields");
+    return;
+ }
+
+ var grossPay = daysWorked * dailyRate;
+ var netPay = grossPay - deductionAmount;
+
+ var employee = {
+    id: employeeCount,
+    name: name,
+    daysWorked: daysWorked,
+    dailyRate: dailyRate,
+    deductionAmount: deductionAmount,
+    grossPay: grossPay,
+    netPay: netPay
+ };
+
+ employees.push(employee);
+ employeeCount++;
+
+ displayEmployees();
+}
+
+function deleteEmployee() {
+ var id = parseInt(document.getElementById("deleteId").value);
+
+ for (var i = 0; i < employees.length; i++) {
+    if (employees[i].id === id) {
+      employees.splice(i, 1);
+      break;
+    }
+ }
+
+ displayEmployees();
+}
+
+function displayEmployees() {
+ var result = "<table><tr><th>No.</th><th>Employee Name</th><th>Days Worked</th><th>Daily Rate</th><th>Gross Pay</th><th>Deduction Amount</th><th>Net Pay</th></tr>";
+
+ for (var i = 0; i < employees.length; i++) {
+    result += "<tr><td>" + employees[i].id + "</td><td>" + employees[i].name + "</td><td>" + employees[i].daysWorked + "</td><td>" + employees[i].dailyRate + "</td><td>" + employees[i].grossPay + "</td><td>" + employees[i].deductionAmount + "</td><td>" + employees[i].netPay + "</td></tr>";
+ }
+
+ result += "</table>";
+
+ document.getElementById("result").innerHTML = result;
+}
+</script>
+</head>
+<body>
+<form>
+<label for="name">Employee Name:</label><br>
+<input type="text" id="name" name="name"><br>
+<label for="daysWorked">Days Worked:</label><br>
+<input type="text" id="daysWorked" name="daysWorked"><br>
+<label for="dailyRate">Daily Rate:</label><br>
+<input type="text" id="dailyRate" name="dailyRate"><br>
+<label for="deductionAmount">Deduction Amount:</label><br>
+<input type="text" id="deductionAmount" name="deductionAmount"><br>
+<input type="button" value="Add Employee" onclick="addEmployee()">
+</form>
+
+<form>
+<label for="deleteId">Line Number to Delete:</label><br>
+<input type="text" id="deleteId" name="deleteId"><br>
+<input type="button" value="Delete Employee" onclick="deleteEmployee()">
+</form>
+
+<p id="result"></p>
+
+</body>
+</html>
+
+<!DOCTYPE html> 
+<html lang="en">
+<head> 
+   <meta charset="UTF-8">
+   <meta name="viewport" 
+content="width=device-width, initial-scale=1.0"> 
+<title>Home</title> <style> .home { background-color: #4c93af; color: white; display: block; margin: 20px; padding: 10px; text-align: center; text-decoration: none; font-size: 16px; } </style> </head> <body>
+   <a href="index.html" class="home">Home</a>
+   
+</body>
+</html>

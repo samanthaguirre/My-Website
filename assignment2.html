@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Income Tax Calculator</title>
+<script>
+function computeIncomeTax() {
+ var taxableIncome = parseFloat(document.getElementById("taxableIncome").value);
+ var incomeTax = 0;
+
+ if (taxableIncome > 8000000) {
+    incomeTax = 2410000 + 0.35 * (taxableIncome - 8000000);
+ } else if (taxableIncome > 2000000) {
+    incomeTax = 490000 + 0.32 * (taxableIncome - 2000000);
+ } else if (taxableIncome > 800000) {
+    incomeTax = 130000 + 0.30 * (taxableIncome - 800000);
+ } else if (taxableIncome > 400000) {
+    incomeTax = 30000 + 0.25 * (taxableIncome - 400000);
+ } else if (taxableIncome > 250000) {
+    incomeTax = 0 + 0.20 * (taxableIncome - 250000);
+ }
+
+ document.getElementById("result").innerHTML = "Result: " + incomeTax.toFixed(2);
+}
+</script>
+</head>
+<body>
+<form>
+<label for="taxableIncome">Taxable Income:</label><br>
+<input type="text" id="taxableIncome" name="taxableIncome"><br>
+<input type="button" value="Compute Income Tax" onclick="computeIncomeTax()">
+</form>
+
+<p id="result"></p>
+
+</body>
+</html>
+
+<!DOCTYPE html> 
+<html lang="en">
+<head> 
+   <meta charset="UTF-8">
+   <meta name="viewport" 
+content="width=device-width, initial-scale=1.0"> 
+<title>Home</title> <style> .home { background-color: #4c93af; color: white; display: block; margin: 20px; padding: 10px; text-align: center; text-decoration: none; font-size: 16px; } </style> </head> <body>
+   <a href="index.html" class="home">Home</a>
+   
+</body>
+</html>

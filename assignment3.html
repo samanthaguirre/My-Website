@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculations</title>
+</head>
+<body>
+    <label for="n">Enter an integer value n:</label>
+    <input type="number" id="n" name="n">
+    <button onclick="calculate()">Calculate</button>
+    <h2>Results:</h2>
+    <p id="result1"></p>
+    <p id="result2"></p>
+    <p id="result3"></p>
+    <script>
+        function calculate() {
+            let n = document.getElementById('n').value;
+
+            // 1. The nth factorial (Using a While Loop)
+            let factorial = 1;
+            let i = 1;
+            while (i <= n) {
+                factorial *= i;
+                i++;
+            }
+            document.getElementById('result1').innerHTML = 'The ' + n + 'th factorial: ' + factorial;
+
+            // 2. The sum of the first n numbers (Using a Do While Loop)
+            let sum = 0;
+            let j = 1;
+            do {
+                sum += j;
+                j++;
+            } while (j <= n);
+            document.getElementById('result2').innerHTML = 'The sum of the first ' + n + ' numbers: ' + sum;
+
+            // 3. The Average of the first n numbers (Using a For Loop)
+            let average = 0;
+            for (let k = 1; k <= n; k++) {
+                average += k;
+            }
+            average /= n;
+            document.getElementById('result3').innerHTML = 'The average of the first ' + n + ' numbers: ' + average;
+        }
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html> 
+<html lang="en">
+<head> 
+   <meta charset="UTF-8">
+   <meta name="viewport" 
+content="width=device-width, initial-scale=1.0"> 
+<title>Home</title> <style> .home { background-color: #4c93af; color: white; display: block; margin: 20px; padding: 10px; text-align: center; text-decoration: none; font-size: 16px; } </style> </head> <body>
+   <a href="index.html" class="home">Home</a>
+   
+</body>
+</html>
